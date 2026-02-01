@@ -77,6 +77,27 @@ nav a {
   align-items: center;
 }
 
+.home-content .text-box {
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  padding: 20px 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+.home-content .text-box h1 {
+  margin: 0 0 10px 0;
+  font-size: 3rem;
+  color: #fff;
+}
+
+.home-content .text-box p {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+
 /* Glitch effect */
 .glitch {
   font-family: 'Space Mono', monospace;
