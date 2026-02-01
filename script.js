@@ -1,63 +1,95 @@
-// Smooth scrolling for navigation
-document.querySelectorAll("nav a").forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth",
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* =========================
+     Smooth Scrolling
+  ========================= */
+  document.querySelectorAll("nav a").forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      const target = document.querySelector(anchor.getAttribute("href"));
+      if (!target) return;
+
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth" });
     });
   });
-});
 
+  /* =========================
+     Carousel Functionality
+  ========================= */
+  document.querySelectorAll(".carousel").forEach((carousel) => {
+    const images = carousel.querySelector(".carousel-images");
+    const prevBtn = carousel.querySelector(".prev");
+    const nextBtn = carousel.querySelector(".next");
 
-// Image carousel functionality - fixed version
-document.querySelectorAll(".carousel").forEach((carousel) => {
-  const images = carousel.querySelector(".carousel-images");
-  const imageCount = images.children.length;
-  let index = 0;
+    if (!images || !prevBtn || !nextBtn) return;
 
-  const updateCarousel = () => {
-    images.style.transform = `translateX(-${index * 100}%)`;
-  };
+    const imageCount = images.children.length;
+    let index = 0;
 
-  carousel.querySelector(".prev").addEventListener("click", () => {
-    index = (index - 1 + imageCount) % imageCount;
-    updateCarousel();
+    const updateCarousel = () => {
+      images.style.transform = `translateX(-${index * 100}%)`;
+    };
+
+    prevBtn.addEventListener("click", () => {
+      index = (index - 1 + imageCount) % imageCount;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      index = (index + 1) % imageCount;
+      updateCarousel();
+    });
   });
 
-  carousel.querySelector(".next").addEventListener("click", () => {
-    index = (index + 1) % imageCount;
-    updateCarousel();
+  /* =========================
+     Fullscreen Sketch View
+  ========================= */
+  const overlay = document.getElementById("fullscreen-overlay");
+  const fullscreenImg = document.getElementById("fullscreen-image");
+  const captionEl = document.querySelector(".fullscreen-caption");
+  const closeBtn = document.querySelector(".close-fullscreen");
+
+  document.querySelectorAll(".sketch-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      if (!overlay || !fullscreenImg) return;
+
+      fullscreenImg.src = item.dataset.fullsize;
+      if (captionEl) {
+        captionEl.textContent = item.querySelector("img")?.alt || "";
+      }
+
+      overlay.style.display = "flex";
+    });
   });
-});
 
-// Open fullscreen view for sketches
-document.querySelectorAll(".sketch-item").forEach((item) => {
-  item.addEventListener("click", function () {
-    const fullsizeImage = this.getAttribute("data-fullsize");
-    const caption = this.querySelector("img").alt;
-
-    // Set the fullsize image and caption in the fullscreen view
-    document.getElementById("fullscreen-image").src = fullsizeImage;
-    document.querySelector(".fullscreen-caption").textContent = caption;
-
-    // Show the fullscreen view
-    document.getElementById("fullscreen-overlay").style.display = "flex";
-  });
-});
-
-// Close the fullscreen view when clicking on the close button
-document.querySelector(".close-fullscreen").addEventListener("click", function () {
-  document.getElementById("fullscreen-overlay").style.display = "none";
-});
-
-// Close the fullscreen view if clicking outside the image
-document.getElementById("fullscreen-overlay").addEventListener("click", function (e) {
-  if (e.target === this) {
-    this.style.display = "none";
+  if (closeBtn && overlay) {
+    closeBtn.addEventListener("click", () => {
+      overlay.style.display = "none";
+    });
   }
-  // Detect mobile devices and replace video with image if needed
-if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-  const videoBg = document.querySelector('.video-background');
-  videoBg.innerHTML = '<img src="fallback-image.jpg" alt="Background" style="width:100%;height:100%;object-fit:cover;">';
-}
+
+  if (overlay) {
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) {
+        overlay.style.display = "none";
+      }
+    });
+  }
+
+  /* =========================
+     Mobile Video Fallback
+  ========================= */
+  if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    const videoBg = document.querySelector(".video-background");
+    if (videoBg) {
+      videoBg.innerHTML = `
+        <img 
+          src="assets/images/fallback.jpg" 
+          alt="Background"
+          style="width:100%; height:100%; object-fit:cover;"
+        >
+      `;
+    }
+  }
+
 });
