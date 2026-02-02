@@ -118,6 +118,21 @@ nav a {
   backdrop-filter: blur(10px);
 }
 
+/* Project images (non-carousel) */
+.project-images {
+  display: flex;
+  gap: 16px;
+  margin-top: 1rem;
+}
+
+.project-images img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  flex: 1;
+}
+
 /* Carousel */
 .carousel {
   position: relative;
