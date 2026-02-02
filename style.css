@@ -132,7 +132,9 @@ nav a {
 
 .carousel-images img {
   width: 100%;
+  height: 420px;
   object-fit: cover;
+  border-radius: 16px;
 }
 
 .carousel-btn {
