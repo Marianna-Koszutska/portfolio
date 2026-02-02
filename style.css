@@ -136,9 +136,12 @@ nav a {
 /* Carousel */
 .carousel {
   position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* wide rectangle */
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 16px;
 }
+
 
 .carousel-images {
   display: flex;
@@ -147,10 +150,11 @@ nav a {
 
 .carousel-images img {
   width: 100%;
-  height: 420px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 16px;
+  flex-shrink: 0;
 }
+
 
 .carousel-btn {
   position: absolute;
