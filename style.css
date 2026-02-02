@@ -133,6 +133,13 @@ nav a {
   flex: 1;
 }
 
+.project-links {
+  display: flex;
+  gap: 10px; /* space between buttons */
+  flex-wrap: wrap; /* optional, makes buttons wrap nicely on smaller screens */
+}
+
+
 /* Carousel */
 .carousel {
   position: relative;
