@@ -183,19 +183,26 @@ nav a {
   font-style: italic;
 }
 
-.project-overlay {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  z-index: 10;
-}
+.project-ribbon {
+    position: absolute;
+    top: 15px;
+    left: 15px;
 
-.project-overlay span {
-  background: #6e45e2;
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: bold;
+    background: rgba(15,15,25,.85);
+    backdrop-filter: blur(10px);
+
+    color: white;
+
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    font-size: .8rem;
+    font-weight: 600;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    z-index: 20;
 }
 
 .secondary-btn {
