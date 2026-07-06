@@ -184,24 +184,40 @@ nav a {
 }
 
 .project-ribbon {
+    transition: transform .25s ease, box-shadow .25s ease;
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 18px;
+    right: 18px;
 
-    background: linear-gradient(135deg, #8a63ff, #6e45e2);
-
-    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 
     padding: 8px 16px;
 
-    border-radius: 30px;
+    background: linear-gradient(135deg, #9b6dff 0%, #7c4dff 100%);
+    color: #fff;
 
-    font-size: .8rem;
+    font-size: 0.8rem;
     font-weight: 600;
+    letter-spacing: 0.03em;
 
-    box-shadow: 0 8px 20px rgba(110,69,226,.35);
+    border-radius: 999px;
+
+    box-shadow:
+        0 10px 25px rgba(124, 77, 255, 0.35),
+        inset 0 1px 1px rgba(255,255,255,.25);
+
+    backdrop-filter: blur(8px);
 
     z-index: 20;
+}
+
+.project-card:hover .project-ribbon {
+    transform: translateY(-2px);
+    box-shadow:
+        0 14px 30px rgba(124,77,255,.45),
+        inset 0 1px 1px rgba(255,255,255,.3);
 }
 
 .secondary-btn {
