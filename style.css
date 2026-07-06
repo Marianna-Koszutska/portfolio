@@ -240,7 +240,7 @@ nav a {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;   /* wide rectangle */
-  overflow: hidden;
+  overflow: visible;
   border-radius: 16px;
 }
 
