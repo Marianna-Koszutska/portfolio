@@ -580,7 +580,12 @@ nav a {
 }
 
 
-body {
+body,
+a,
+button,
+input,
+textarea,
+select {
   cursor: none;
 }
 
@@ -603,7 +608,12 @@ body {
 
 @media (hover: none) {
 
-  body {
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select {
     cursor: auto;
   }
 
