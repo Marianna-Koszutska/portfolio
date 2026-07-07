@@ -144,3 +144,17 @@ if (cursor) {
   });
 
 }
+
+
+// =========================
+// Force background video to autoplay
+// =========================
+
+const bgVideo = document.querySelector(".video-background video");
+
+if (bgVideo) {
+  bgVideo.muted = true;
+  bgVideo.play().catch((err) => {
+    console.log("Autoplay prevented:", err);
+  });
+}
