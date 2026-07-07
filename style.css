@@ -580,13 +580,8 @@ nav a {
 }
 
 
-body,
-a,
-button,
-input,
-textarea,
-select {
-  cursor: none;
+* {
+  cursor: none !important;
 }
 
 .custom-cursor {
@@ -608,13 +603,8 @@ select {
 
 @media (hover: none) {
 
-  body,
-  a,
-  button,
-  input,
-  textarea,
-  select {
-    cursor: auto;
+  * {
+    cursor: auto !important;
   }
 
   .custom-cursor {
