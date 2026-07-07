@@ -10,11 +10,13 @@ body {
 
 /* Navigation */
 nav {
-  background: rgba(15, 15, 26, 0.8);
+  background: rgba(15,15,26,0.8);
   padding: 1rem;
   position: fixed;
-  width: 100%;
-  z-index: 1000;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
 }
 
 nav ul {
@@ -658,5 +660,34 @@ nav a {
         75px;
 
     }
+
+
+    nav {
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+
+        gap: 1rem;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        text-align: center;
+        width: 100%;
+    }
+
+    nav a {
+        display: block;
+        text-align: center;
+    }
+
 
 }
