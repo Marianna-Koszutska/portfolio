@@ -284,7 +284,7 @@ nav a {
     background: rgba(20,20,30,.75);
     color: white;
 
-    cursor: pointer;
+
     transition: .25s;
 
     z-index: 15;
@@ -580,9 +580,13 @@ nav a {
 }
 
 
+
+html,
+body,
 * {
   cursor: none !important;
 }
+
 
 .custom-cursor {
   width: 12px;
@@ -603,6 +607,8 @@ nav a {
 
 @media (hover: none) {
 
+  html,
+  body,
   * {
     cursor: auto !important;
   }
