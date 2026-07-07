@@ -663,31 +663,29 @@ nav a {
 
 
     nav {
-        padding: 1rem;
+        padding: 1rem 0.5rem;
     }
 
     nav ul {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        flex-direction: row; /* keep horizontal */
         justify-content: center;
-
-        width: 100%;
+        align-items: center;
 
         gap: 1rem;
 
         margin: 0;
         padding: 0;
+
+        flex-wrap: wrap; /* allows wrapping if screen is too small */
     }
 
     nav ul li {
-        text-align: center;
-        width: 100%;
+        list-style: none;
     }
 
     nav a {
-        display: block;
-        text-align: center;
+        font-size: 0.75rem;
     }
-
 
 }
