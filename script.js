@@ -30,15 +30,12 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
   const imageCount = images.children.length;
   let index = 0;
 
-
   const updateCarousel = () => {
     images.style.transform = `translateX(-${index * 100}%)`;
   };
 
-
   const prevButton = carousel.querySelector(".prev");
   const nextButton = carousel.querySelector(".next");
-
 
   if (prevButton) {
     prevButton.addEventListener("click", () => {
@@ -46,7 +43,6 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
       updateCarousel();
     });
   }
-
 
   if (nextButton) {
     nextButton.addEventListener("click", () => {
@@ -68,14 +64,11 @@ document.querySelectorAll(".sketch-item").forEach((item) => {
 
     const fullsizeImage = this.getAttribute("data-fullsize");
     const image = this.querySelector("img");
-
     const caption = image ? image.alt : "";
-
 
     const fullscreenImage = document.getElementById("fullscreen-image");
     const fullscreenCaption = document.querySelector(".fullscreen-caption");
     const fullscreenOverlay = document.getElementById("fullscreen-overlay");
-
 
     if (fullscreenImage && fullscreenOverlay) {
 
@@ -86,7 +79,6 @@ document.querySelectorAll(".sketch-item").forEach((item) => {
       }
 
       fullscreenOverlay.style.display = "flex";
-
     }
 
   });
@@ -101,13 +93,11 @@ document.querySelectorAll(".sketch-item").forEach((item) => {
 const closeButton = document.querySelector(".close-fullscreen");
 const fullscreenOverlay = document.getElementById("fullscreen-overlay");
 
-
 if (closeButton && fullscreenOverlay) {
 
-  closeButton.addEventListener("click", function () {
+  closeButton.addEventListener("click", () => {
     fullscreenOverlay.style.display = "none";
   });
-
 
   fullscreenOverlay.addEventListener("click", function (e) {
 
@@ -121,67 +111,36 @@ if (closeButton && fullscreenOverlay) {
 
 
 // =========================
-// Mobile video replacement
-// =========================
-
-if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-
-  const videoBg = document.querySelector(".video-background");
-
-
-  if (videoBg) {
-
-    videoBg.innerHTML = `
-      <img 
-        src="assets/fallback-image.jpg" 
-        alt="Background"
-        style="width:100%;height:100%;object-fit:cover;"
-      >
-    `;
-
-  }
-
-}
-
-
-// =========================
 // Custom cursor
 // =========================
 
 const cursor = document.querySelector(".custom-cursor");
 
-
 if (cursor) {
-
 
   document.addEventListener("mousemove", (e) => {
 
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
 
   });
 
 
+  document.addEventListener("mouseover", (e) => {
 
-  document.querySelectorAll("a, button, .carousel-btn").forEach((element) => {
-
-
-    element.addEventListener("mouseenter", () => {
-
+    if (e.target.closest("a, button, .carousel-btn")) {
       cursor.classList.add("hover");
-
-    });
-
-
-
-    element.addEventListener("mouseleave", () => {
-
-      cursor.classList.remove("hover");
-
-    });
-
+    }
 
   });
 
+
+  document.addEventListener("mouseout", (e) => {
+
+    if (e.target.closest("a, button, .carousel-btn")) {
+      cursor.classList.remove("hover");
+    }
+
+  });
 
 }
