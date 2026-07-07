@@ -580,6 +580,21 @@ nav a {
 }
 
 
+.custom-cursor {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #9b5cff;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+  z-index: 9999;
+}
+
+.custom-cursor.hover {
+  transform: scale(2);
+}
+
 
 /* =========================
    MOBILE
